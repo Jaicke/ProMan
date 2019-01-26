@@ -1,0 +1,17 @@
+<h1>Forum</h1>
+<h2>Perguntas</h2>
+<ul class="list-group">
+  <% @questions.each do |question| %>
+    <li class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= question.title %></h5>
+        <small class="text-muted"><%= time_ago_in_words(question.created_at) %></small>
+      </div>
+        <p class="mb-1"><%= question.body %></p>
+        <small class="text-muted"><%#= question.user.email %></small>
+    </li>
+  <% end %>  
+</ul>
+<%= link_to  "add pergunta", new_forum_question_path %>
+
+

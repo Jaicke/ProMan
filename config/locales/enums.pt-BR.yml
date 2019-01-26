@@ -1,0 +1,7 @@
+'pt-BR':
+  enums:
+    task:
+      status:
+        pending: Pendente
+        in_progress: Em Andamento
+        completed: Completo

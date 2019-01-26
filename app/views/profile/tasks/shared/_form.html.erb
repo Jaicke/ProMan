@@ -1,0 +1,24 @@
+<%= form_for([:profile, @task], html: {class:"form-inline"}) do |f| %>
+    <tr>
+        <td><%= hidden_field_tag(:project_id, @project.id) %></td>
+        <td>                
+            <%= f.text_field :name, class:"form-control", placeholder: "Nome" %>       
+        </td>   
+    
+        <td>          
+            <%= f.text_field :description, class:"form-control", placeholder: "Descrição" %>
+        </td>
+        <td>          
+            <%= f.date_field :date_limit, class:"form-control", placeholder: "Descrição" %>
+        </td>
+        <td>          
+            <%= f.collection_select :status, options_for_status, :id, :description, class:"form-control" %>
+        </td>
+        <td>
+            <%= submit_tag "Adicionar Tarefa", class:"btn btn-primary" %>
+        </td> 
+    </td>
+  
+<% end %>
+
+

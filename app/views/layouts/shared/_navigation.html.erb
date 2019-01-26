@@ -1,0 +1,43 @@
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">        
+        <%= link_to "ProMan", root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto justify-content-end">
+          <% unless user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Entrar", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Cadastrar-se", new_user_registration_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <% else %>            
+            <div class="dropdown">
+              <a href="#" class=" dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" style="color: white; text-decoration: none;"><%= has_avatar? %></a>
+					    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+						    <a class="dropdown-item" href="/usuario/logado">Logado como <strong><%= current_user.email %></strong></a>
+						    <div class="dropdown-divider"></div>
+						    <%= link_to "Meus projetos", profile_projects_path, class:"dropdown-item" %>
+                <div class="dropdown-divider"></div>                
+                <%= link_to  "Fórum", forum_questions_path, class:"dropdown-item"  %>
+                <div class="dropdown-divider"></div>
+                <%#= link_to "Editar Perfil", edit_profile_my_datum_path(current_user), class:"dropdown-item" %>
+                <div class="dropdown-divider"></div>
+						    <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+					    </div>
+				    </div>
+          <% end %>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+
+
+
+

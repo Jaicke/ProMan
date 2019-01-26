@@ -1,0 +1,33 @@
+<h2>
+  Meus Projetos
+  <%= link_to  new_profile_project_path do %>
+    <%= fa_icon 'plus' %>
+  <% end %>
+</h2>
+<div class="row">
+  <% @projects.each do |project| %>
+  <div class="col-md-4">
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+      
+      <div class="card-header"><%= project.name %></div>
+      <div class="card-body">    
+        <p class="card-text"><%= project.description %></p>
+      </div>
+      <div class="card-footer bg-transparent border-dark">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= link_to profile_project_path(project), class:"btn btn-primary btn-sm"  do %>
+            <%= fa_icon 'list'%>
+          <% end %>
+          <%= link_to edit_profile_project_path(project), class:"btn btn-info btn-sm"  do %>
+            <%= fa_icon 'pencil'%>
+          <% end %>
+          <%= link_to profile_project_path(project), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Tem certeza?" } do %>
+            <%= fa_icon 'minus'%>
+          <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <% end %>  
+</div>

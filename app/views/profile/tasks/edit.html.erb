@@ -1,0 +1,15 @@
+<%= form_for([:profile, @task]) do |f| %>
+    <div class="form-group">
+        <%= f.label :name %>                      
+            <%= f.text_field :name, class:"form-control", placeholder: "Nome" %>      
+        <%= f.label :description %>
+            <%= f.text_field :description, class:"form-control", placeholder: "Descrição" %>
+        <%= f.label :date_limit %> 
+            <%= f.date_field :date_limit, class:"form-control", placeholder: "Descrição" %>
+        <%= f.label :status %>                  
+            <%= f.collection_select :status, options_for_status, :id, :description,  html: {class:"form-control"} %>
+        
+        <%= submit_tag "Adicionar Tarefa", class:"btn btn-primary" %>
+    </div>
+     
+<% end %>
